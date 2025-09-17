@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            color: #333;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .page-break {
+            page-break-after: always;
+            break-after: page;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        h1 { font-size: 2em; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        h2 { font-size: 1.5em; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        h3 { font-size: 1.25em; }
+        h4 { font-size: 1em; }
+        h5 { font-size: 0.875em; }
+        h6 { font-size: 0.85em; color: #6a737d; }
+        p { margin-bottom: 16px; }
+        a { color: #0366d6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code {
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            background-color: rgba(27, 31, 35, 0.05);
+            border-radius: 3px;
+            padding: 0.2em 0.4em;
+            font-size: 85%;
+        }
+        pre {
+            background-color: #f6f8fa;
+            border-radius: 3px;
+            padding: 16px;
+            overflow: auto;
+            line-height: 1.45;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            color: #6a737d;
+            padding: 0 1em;
+            margin: 0 0 16px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        th, td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+        th {
+            background-color: #f6f8fa;
+            font-weight: 600;
+        }
+        img {
+            max-width: 100%;
+            box-sizing: initial;
+            background-color: #fff;
+            display: block;
+            margin: 10px auto;
+        }
+        hr {
+            border: 0;
+            height: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 24px 0;
+        }
+    </style>
+</head>
+<body>
+<style>
+        body {
+            font-family: Arial;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+        .steps {
+            margin: 20px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .step:before {
+            content: "►";
+            position: absolute;
+            left: 10px;
+            font-size: 7px;
+            top: 0.8em;
+            color: #636161ff;
+        }
+
+        .important {
+            border-left: 40px solid #FFA500;
+            background-color: #FFF1DE;
+            color: #AB3F00;
+	        border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .important::before {
+            content: "⚠︎";
+            color: #FFF1DE;
+            position: absolute;
+            left: -28px;
+            top: 50% ;
+            transform: translateY(-50%);
+            font-size: 20px;        
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        th {
+            background-color: #e7e7e7ff;
+            color: #5E5D5D;
+            text-align: center;
+            vertical-align: middle;
+            padding: 12px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #cdcdcdff;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td:nth-child(odd) {
+            background-color: #e7e7e7ff;
+        }
+
+        tr:nth-child(odd) td:nth-child(odd) {
+            background-color: #F5F5F5;
+        }
+
+        tr:nth-child(even) td:nth-child(even) {
+            background-color: #e7e7e7ff;
+        }
+
+        tr:nth-child(odd) td:nth-child(even) {
+            background-color: #d8d8d8ff;
+        }
+
+/* Исключаем заголовок из чередования */
+        thead tr th,
+        thead tr th:nth-child(odd),
+        thead tr th:nth-child(even) {
+            background-color: #e7e7e7ff !important;
+            color: #5E5D5D !important;
+            text-align: center !important;
+        }
+
+</style>
+<body>
+<span style="background-color: #F5F5F5; width: 100%; font-size: 15px; padding: 3px 0; display: block; border: 1px solid #cdcdcdff"> <span style="font-size: 24px;">⌂</span> / Гид / БАС-110 </span>
+<span style="background-color: #F5F5F5; width: 100%; padding: 15px 0; display: block; font-size: 1.5rem; border-bottom: 1px solid #cdcdcdff; border-left: 1px solid #cdcdcdff; border-right: 1px solid #cdcdcdff; margin-bottom: 30px"> Принцип работы и описание основных узлов КПА «Махаон» 2.0 </span>
+
+<p><span style="color: #0463c2ff; font-size: 2rem"><strong>Беспроводная акустическая система БАС-110</strong></span></p>
+<p><span style="display: block; background: linear-gradient(to right, #0463c2ff, #ffffff); margin-top: -15px; height: 2px"></span></p>
+<h3><strong>Описание</strong></h3>
+<p><span style="display: block; background: linear-gradient(to right, #000000ff, #ffffff); margin-top: -15px; height: 1px"></span></p>
+<p>Беспроводная акустическая система БАС-110, представленная на рисунке ниже, предназначена для усиления тестовых сигналов. Вход и выход БАС-110 являются симметричными, уровень звукового давления (УЗД) — 94 дБ.</p>
+<p>Питание системы осуществляется посредством встроенной (штатной) аккумуляторной батареи. Подключение к сети электропитания в ходе эксплуатации не требуется. Комплект поставки включает сетевой адаптер для зарядки АКБ.</p>
+<p>При запуске ПО «Махаон» инициализируется поиск предустановленного устройства БАС-110, сопровождающийся прерывистым световым сигналом в нижней правой части панели инструментов. При включении БАС-110, на боковой панели активируется прерывистый световой сигнал синего цвета. При установлении связи между УПП и БАС-110 индикаторы на панели УПП и БАС-110 переходят в режим непрерывного светового сигнала. Наличие периодического прерывания сигнала свидетельствует о воздействии помех в радиоэфире или о значительном превышении расстояния между УПП и БАС-110 над номинальной дальностью связи. В данном случае необходимо установить соединение между УПП и БАС-110 при помощи кабеля или посредством использования радиоканала.</p>
+<p>Акустическая ось (направление максимального излучения акустического тест-сигнала) направлена перпендикулярно передней стенке системы.</p>
+</span>
+
+<p><img src="https://i.postimg.cc/gcBQngJ4/20250913135645.png" alt="20250913135645.png"></p>
+<p>На верхней панели системы БАС-110 расположены следующие элементы:</p>
+<div class="steps">
+    <div class="step">Разъем «Выход» — используется для подключения внешнего громкоговорителя</div>
+    <div class="step">Разъем «Вход» — используется для подключения источника звука кабелем</div>
+    <div class="step">Регулятор громкости</div>
+    <div class="step">Кнопка включения/выключения питания с индикацией разряда аккумуляторных батарей</div>
+    <div class="step">Кнопка включения/выключения питания Bluetooth, с индикацией поиска предустановленного устройства</div>
+    <div class="step">Разъем USB Type-C — используется для подключения зарядного устройства</div>
+    <div class="step">Отсек со съемной крышкой для аккумуляторных батарей типа 18650</div>
+    <div class="step">Съемная крышка отсека для аккумуляторных батарей</div>
+</div>
+
+<p>Прерывистый световой сигнал кнопки включения/выключения питания свидетельствует о низком уровне заряда АКБ.</p>
+<h3><strong>Подключение БАС-110 к УПП по умолчанию</strong></h3>
+<p><span style="display: block; background: linear-gradient(to right, #000000ff, #ffffff); margin-top: -15px; height: 1px"></span></p>
+<p>По умолчанию система БАС-110 подключена к УПП по каналу Bluetooth.</p>
+<h3><strong>Порядок кабельного подключения БАС-110 к УПП</strong></h3>
+<p><span style="display: block; background: linear-gradient(to right, #000000ff, #ffffff); margin-top: -15px; height: 1px"></span></p>
+<p>Схема кабельного подключения системы БАС-110 к УПП представлена на рисунке ниже:</p>
+<p><a href="https://postimg.cc/hQMB1Fr9"><img src="https://i.postimg.cc/c6GLZ0t5/20250913143752.png" alt="20250913143752.png"></a></p>
+<h3><strong>Пункт подраздела сведений о системе БАС-110</strong></h3>
+<p><span style="display: block; background: linear-gradient(to right, #000000ff, #ffffff); margin-top: -15px; height: 1px"></span></p>
+<h3><strong>Порядок подключения БАС-110 к УПП по радиоканалу</strong></h3>
+<p><span style="display: block; background: linear-gradient(to right, #000000ff, #ffffff); margin-top: -15px; height: 1px"></span></p>
+<p>Схема подключения системы БАС-110 к УПП посредством радиоканала представлена на рисунке ниже:</p>
+<p><a href="https://postimg.cc/p5Phqnw3"><img src="https://i.postimg.cc/GtyF3Fq3/20250913151020.png" alt="20250913151020.png"></a></p>
+<p><span style="color: #0463c2ff; font-size: 2rem"><strong>Датчики</strong></span></p>
+<p><span style="display: block; background: linear-gradient(to right, #0463c2ff, #ffffff); margin-top: -15px; height: 2px"></span></p>
+<p>Подключение датчики к УПП осуществляется по кабельным линиям связи, как показано на рисунке ниже, или с помощью радиоканала.</p>
+<p><a href="https://postimg.cc/k6vD6g2s"><img src="https://i.postimg.cc/fL6dP3ZG/20250913151609.png" alt="20250913151609.png"></a></p>
+<div class="important">
+    <p><strong> ⚠️ Внимание</strong></p> 
+    <p>ICP-питание на входных разъемах КПА «МАХАОН» 2.0 и фантомное питание на передатчике радиоканала SKP 500 G4 требуются только при работе с <strong>датчиками №1 — микрофон МКИ-1, №2 — акселерометр, №3 — акселерометр, №5 — ПЭА.</strong></p>Во всех остальных случаях ICP-питание на входных разъемах КПА «МАХАОН» 2.0 и фантомное питание на передатчике радиоканала SKP 500 G4 должны быть <strong>выключены</strong>!
+</div>
+
+<p>С помощью радиоканала осуществляется подключение преимущественно микрофона. Данный режим применяется для исследования таких каналов утечки, как окно, вентиляционные отверстия, короба и иные коммуникации, проходящие через физические препятствия (стены, пол, потолок). Таким образом, режим применяется в случаях, когда технически невозможно кабельное соединение преобразователей с УПП. Подключение других датчиков не рекомендовано, в связи с наличием собственых шумов радиоканала, что может оказать влияние на результаты измерений.</p>
+<p>Максимальная дальность действия радиоканала — 50 м. Внешние физические объекты (стены, перегородки, перекрытия и пр.) уменьшают дальность действия радиоканала.</p>
+<p>При подключении системы БАС-110 необходимо проверить установленный уровень чувствительности <strong>SENSIT</strong> в радиопередатчике и уровень линейного выхода <strong>AF OUT</strong> в радиоприёмнике согласно эксплуатационной документации (руководству по эксплуатации) подключаемого передатчика SKP 500 G4 и приёмника EK 100G3.</p>
+<p>На рисунке ниже представлена схема подключения датчиков посредством использования радиоканала:</p>
+<p><a href="https://postimg.cc/Vrvn8tGM"><img src="https://i.postimg.cc/wvcVDcDW/20250913151803.png" alt="20250913151803.png"></a></p>
+<p>Ниже представлены характеристики датчиков КПА «Махаон» 2.0. Номера датчиков, указанные на схемах подключения, представленных на рисунках выше, соответствуют номерам в таблице.</p>
+<table style="width: auto">
+<thead>
+<tr>
+<th></th>
+<th>Наименование</th>
+<th>Характеристики</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1</strong></td>
+<td><strong>Микрофон МКИ-1</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>направленность</td>
+<td>круговая</td>
+</tr>
+<tr>
+<td></td>
+<td>чувствительность по свободному полю, не хуже</td>
+<td>10 мВ/Па</td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>20 - 20000 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>неравномерность АЧХ по звуковому давлению, не более</td>
+<td>2 дБ</td>
+</tr>
+<tr>
+<td></td>
+<td>минимальный измеряемый уровень звукового давления</td>
+<td>20 дБ</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (диаметр капсюля; длина)</td>
+<td>12,7 мм; 145 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>0,1кг</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Акселерометр АР2037-100</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>чувствительность</td>
+<td>100 мВ/g (10 мВ/(м*с^2))</td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>0,5...15000 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (диаметр; длина)</td>
+<td>12 мм; 18 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса (без кабеля)</td>
+<td>13 г</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Акселерометр 352A24-100</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>чувствительность</td>
+<td>100 мВ/g (10 мВ/(м*с^2))</td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>0,4...12000 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (диаметр; длина)</td>
+<td>12,2 мм; 4,8 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса (без кабеля)</td>
+<td>0,8 г</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Преобразователь измерительный магнитный активный ПИМА</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>175 - 11300 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (диаметр; длина)</td>
+<td>65 мм; 235 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>0,35 кг</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Преобразователь электрический активный ПЭА</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>175 - 11300 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (диаметр; длина)</td>
+<td>80 мм; 235 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>0,2 кг</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>Фильтр присоединения к сети ФПр-1 (пробник напряжения симметричный)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>90 - 11300 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>Подавление гармоник сети, не менее</td>
+<td>43 дБ на частоте 50 Гц18 дБ на частоте 150 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (диаметр; длина)</td>
+<td>20 мм; 170 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>0,2 кг</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>Адаптер проводных линий АПЛ-1 (пробник напряжения)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>90 - 11300 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>симметричный: габариты (диаметр; длина)</td>
+<td>20 мм; 70 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>несимметричный (с аттенюатором): габариты (диаметр; длина)</td>
+<td>20 мм; 70 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>0,25 кг</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td><strong>Токосъемник ТИ 2-1</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>0,1 - 4000 кГц</td>
+</tr>
+<tr>
+<td></td>
+<td>значение рабочего тока</td>
+<td>25 А</td>
+</tr>
+<tr>
+<td></td>
+<td>максимальный диаметр охватываемого проводника</td>
+<td>18 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты (длина; ширина; высота)</td>
+<td>70 мм; 70 мм; 22 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>0,25 кг</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td><strong>Виброметр лазерный PDV-100</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>0,5 - 22000 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты</td>
+<td>300×63×129 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>2,6 кг</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td><strong>Виброметр лазерный VGO-200</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>диапазон частот</td>
+<td>0,1 - 20000 Гц</td>
+</tr>
+<tr>
+<td></td>
+<td>габариты</td>
+<td>345×90×125 мм</td>
+</tr>
+<tr>
+<td></td>
+<td>масса</td>
+<td>3,1 кг</td>
+</tr>
+</tbody></table>
+</body>
+</body>
+</html>
